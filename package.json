@@ -2,7 +2,7 @@
   "name": "json_the_cat",
   "version": "1.0.0",
   "description": "",
-  "main": "breedFetcher.js",
+  "main": "fetchBreedDesctiption.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,5 +19,9 @@
   "homepage": "https://github.com/Valera-Neg/json_the_cat#readme",
   "dependencies": {
     "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.0.3"
   }
 }

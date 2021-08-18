@@ -1,12 +1,10 @@
 const request = require('request');
-const breedFetcher = function(breed) {
-  if (!breed) throw new Error('Breed is not defined');
-    request(`https://api.thecatapi.com/v1/breeds/search?q=${breed}`, (error, response, body) => {
-      if (error) throw new Error('unsaccessful request');
-      const data = JSON.parse(body);
-      console.log(data);
-      if (!data.length) throw new Error('breed not found');
-      console.log(data[0].description);
+function fetchBreedDescription(breed, callback) {
+  request(`https://api.thecatapi.com/v1/breeds/search?q=${breed}`, (err, response, body) => {
+    const data = JSON.parse(body);
+    let description;
+    !data.length ? description = null : description = data[0].description;
+    callback(err, description);
   });
 };
-breedFetcher(process.argv[2]);
+module.exports = { fetchBreedDescription };
